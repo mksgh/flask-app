@@ -28,14 +28,6 @@ def form():
         return f'{n} obtain {m} marks!'
     return render_template('form.html')
 
-# @app.route('/submit', methods=['GET','POST'])
-# def submit():
-#     if request.method=='POST':
-#         name=request.form['name']
-#         return f'Hello {name}!'
-#     return render_template('form.html')
-
-#variable rule
 @app.route('/success', methods = ['GET','POST'])
 def success():
     if request.method=='POST':
@@ -51,6 +43,11 @@ def success():
         return f'Hello {name} you have obtained {score} and you are {res}!'
     
     return  render_template('form.html')
+
+@app.route('/link/<name>/<int:score>', methods = ['GET'])
+def link(name, score):
+    return f'{name} you have obtaine {score} marks!'
+
 
 if __name__=="__main__":
     app.run(debug=True)
